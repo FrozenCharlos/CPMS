@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  js -->
+    <script src="#(ctx)/site/js/jquery-1.11.1.min.js"></script>
+    <script src="#(ctx)/site/js/popper.min.js"></script>
+    <script src="#(ctx)/site/js/bootstrap.min.js"></script>
+    <script src="#(ctx)/site/js/echarts.min.js"></script>
+    <script src="#(ctx)/site/js/echarts2-all.js"></script>
+    <script src="#(ctx)/site/js/scrollImgs.min.js"></script>
+    <script src="#(ctx)/site/js/jquery.dataTables.min.js"></script>
+    <script src="#(ctx)/site/js/dataTables.bootstrap4.min.js"></script>
+    <script src="#(ctx)/site/js/twitter-bootstrap-hover-dropdown.js"></script>
+    <script src="#(ctx)/site/js/toastr.min.js"></script>
+    <title>Login</title>
+    <h1>用户登录</h1>
+</head>
+<body>
+<div>
+    <form id =loginform action="/dpms/" method="post">
+        账户：<input type="text" id  = "useraccount" name="useraccount" value="#(useraccount)"requireds>
+        <br>
+        密码：<input type="password" id  ="userpassword" name="userpassword">
+        <br>
+        <input type="button" name =button value="登录" onclick="login()">
+    </form>
+</div>
+<div id="loginmessage" style="color:red">#(loginresult)</div>
+</body>
+</html>
