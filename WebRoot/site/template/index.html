@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>社区物业管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="site/js/layuibase/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="site/js/layuibase/css/global.css" media="all">
+    <link rel="stylesheet" href="site/js/bts/css/font-awesome.css" media="all">
+
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header header header-demo">
+        <div class="layui-main">
+            <div>
+                <a class="logo" style="left: 0;" href="#">
+                    <span style="font-size: 22px;color:#FFFFFF">社区物业管理系统</span>
+                </a>
+                <div class="admin-side-toggle" style="display:none">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+
+            <ul class="layui-nav admin-header-item" >
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="admin-header-user">
+                        <i class="icon-user" style="font-size:16px;color:#fff;margin-right:10px;"></i>
+                        <span style="color:#FFFFFF;margin-right:10px">你好，#(session.userRole):#(session.userName)</span>
+                    </a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="../dpms/login/getUserLogout">
+                        <i class="layui-item" style="font-size:16px;color:#fff;margin-right:10px;"></i>
+                        <span style="color:#FFFFFF;margin-right:10px">退出</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item"><a href="">个人信息</a></li>
+                <li class="layui-nav-item"><a href="">业主信息管理</a></li>
+                <li class="layui-nav-item"><a href="">楼宇信息管理</a></li>
+                <li class="layui-nav-item"><a href="">房屋信息管理</a></li>
+                <li class="layui-nav-item"><a href="">用户信息管理</a></li>
+                <li class="layui-nav-item"><a href="">系统管理</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body"style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
+        <!-- 内容主体区域 -->
+        <div class="layui-tab layui-nav-card layui-tab-brief" lay-filter="admin-tab">
+            <ul class="layui-tab-title">
+
+                <li class="layui-this">
+                    <i class="fa fa-dashboard" aria-hidden="true"></i>
+                    主页
+                </li>
+            </ul>
+            <div class="layui-tab-content" style="height: 430px;">
+                <iframe id="option" name="option" src="site/template/addUser.html" style="overflow: visible;" scrolling="yes" frameborder="no" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © Produced by  JLU Weijie Jin
+    </div>
+</div>
+<script src="site/js/layuibase/plugins/layui/layui.js"></script>
+<script src="site/js/layuibase/js/index.js"></script>
+<script>
+    //JavaScript代码区域
+    /*layui.use('element', function(){
+        var element = layui.element;
+
+    });*/
+</script>
+</body>
+</html>

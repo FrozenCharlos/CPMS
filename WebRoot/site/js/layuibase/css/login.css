@@ -1,0 +1,107 @@
+*{box-sizing: border-box;}
+.layui-btn-primary{
+	width:100%;
+	background-color: #0ca0ec;
+}
+.beg-login-box {
+	width: 280px;
+	height: 300px;
+	background-color: #ffffff;
+	border-radius: 4px;
+	color: aliceblue;
+	margin-left:auto;
+}
+
+.beg-login-box header {
+	height: 36px;
+	padding: 8px;
+	border-bottom: 1px solid #a2cdde;
+}
+
+.beg-login-box header h1 {
+	text-align: center;
+	font-size: 16px;
+	line-height: 30px;
+	color: #0d0d0d;
+	text-align: left;
+}
+
+.beg-login-box .beg-login-main {
+	height: 185px;
+	padding: 30px 15px 0;
+}
+
+.beg-login-main .layui-form-item {
+	position: relative;
+}
+
+.beg-login-main .layui-form-item .beg-login-icon {
+	position: absolute;
+	color: #cccccc;
+	top: 10px;
+	left: 10px;
+}
+
+.beg-login-main .layui-form-item input {
+	padding-left: 34px;
+}
+
+.beg-login-box footer {
+	height: 35px;
+	padding: 10px 10px 0 10px;
+}
+
+.beg-login-box footer p {
+	line-height: 35px;
+	text-align: center;
+}
+
+.beg-pull-left {
+	float: left !important;
+}
+
+.beg-pull-right {
+	float: right !important;
+}
+
+.beg-pull-center {
+	margin-left:90px !important;
+}
+
+.beg-clear {
+	clear: both;
+}
+
+.beg-login-remember {
+	line-height: 38px;
+}
+
+.beg-login-remember .layui-form-switch {
+	margin-top: 0px;
+}
+
+.beg-login-code-box {
+	position: relative;
+	padding: 10px;
+}
+
+.beg-login-code-box input {
+	position: absolute;
+	width: 100px;
+}
+
+.beg-login-code-box img {
+	cursor: pointer;
+	position: absolute;
+	left: 115px;
+	height: 38px;
+}
+
+
+.tlLayout{width: 1200px; height: 100%; margin: 0 auto; position: relative;}
+.tlHeader{width: 100%; height: 93px; background: #fff;}
+.tlContainer{background: url(../images/backimg_02.png) no-repeat center;}
+.tlContainer .tlLayout{padding: 72px 0;}
+.tlFooter{width: 100%; min-width: 1200px; padding: 30px 0; color: #333; background: #fff; text-align: center;}
+.tlLogo{width: 100%; height: 93px; padding-top: 20px;padding-left: 200px;}
+.tlLogo > h1{padding-left: 60px; font-size: 36px; font-weight: normal; letter-spacing: 7px; background: url(../images/logo.png) no-repeat left center; display: inline-block;}
