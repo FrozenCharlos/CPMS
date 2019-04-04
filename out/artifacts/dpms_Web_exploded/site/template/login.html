@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  js -->
+    <script src="#(ctx)/site/js/jquery-1.11.1.min.js"></script>
+    <script src="#(ctx)/site/js/popper.min.js"></script>
+    <script src="#(ctx)/site/js/bootstrap.min.js"></script>
+    <script src="#(ctx)/site/js/echarts.min.js"></script>
+    <script src="#(ctx)/site/js/echarts2-all.js"></script>
+    <script src="#(ctx)/site/js/scrollImgs.min.js"></script>
+    <script src="#(ctx)/site/js/jquery.dataTables.min.js"></script>
+    <script src="#(ctx)/site/js/dataTables.bootstrap4.min.js"></script>
+    <script src="#(ctx)/site/js/twitter-bootstrap-hover-dropdown.js"></script>
+    <script src="#(ctx)/site/js/toastr.min.js"></script>
+    <!-- 全局常量 -->
+    <script src="#(ctx)/site/js/constant.js"></script>
+    <!-- 全局工具 -->
+    <script src="#(ctx)/site/js/utils.js"></script>
+    <title>Login</title>
+    <h1>用户登录</h1>
+</head>
+<body>
+<div>
+    <form id =loginform action="/dpms/login/getUserLogin" method="post">
+        账户：<input type="text" id  = "useraccount" name="useraccount" value="#(useraccount)"requireds>
+        <br>
+        密码：<input type="password" id  ="userpassword" name="userpassword">
+        <br>
+        <input type="button" name =button value="登录" onclick="login()">
+    </form>
+</div>
+<div id="loginmessage" style="color:red"></div>
+</body>
+<script>
+    function login(){
+        var loginresult;
+        var account =document.getElementById("useraccount");
+        console.log(account.value);
+        var password = document.getElementById("userpassword");
+        if (account.value==""||account.value==null){
+            $("#loginmessage").html("账户不能为空！");
+            return;
+        }
+        else if(password.value==""||password.value==null){
+            $("#loginmessage").html("密码不能为空！");
+            return;
+        }
+        else{
+            $.ajax({
+                url : "/dpms/login/getUserLogin?useraccount="+account.value+"&userpassword="+password.value,
+                type : "GET",
+                dataType : "JSON",
+                success : function(result) {
+                    if (result != null) {
+                        var code = result.code;
+                        var msg = result.msg;
+                        if(code == 1){
+                            $("#loginmessage").html(msg);
+                            return;
+                        }
+                        if(code == 0){
+                             window.location.href=msg;
+                        }
+
+                    }
+                },
+                error : function() {
+                    $("#loginmessage").html("查询用户信息失败，请重新输入");
+                }
+            });
+        }
+    }
+</script>
+</html>
