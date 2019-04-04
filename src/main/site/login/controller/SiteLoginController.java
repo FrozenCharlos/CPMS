@@ -111,7 +111,8 @@ public class SiteLoginController extends Controller {
         HttpSession session = getSession();
         if(session == null || session.getAttribute("userType") == null) {
             //重定向到登录页
-            render("login.html");
+            //render("login.html");
+            redirect("/login");
             return;
         }
 
@@ -121,6 +122,7 @@ public class SiteLoginController extends Controller {
         session.removeAttribute("userId");
         session.removeAttribute("userType");
         session.removeAttribute("userRole");
-        render("login.html");
+//        render("login.html");
+        redirect("/login");
     }
 }

@@ -10,6 +10,5 @@ public class SiteRoutes extends Routes {
         setBaseViewPath("/site/template");
         add("/login",SiteLoginController.class,"");
         add("/index",IndexController.class,"");
-
     }
 }
