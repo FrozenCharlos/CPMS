@@ -11,12 +11,13 @@
 
 
 </head>
-<body class="layui-layout-body">
+<body >
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header header header-demo">
         <div class="layui-main">
             <div>
                 <a class="logo" style="left: 0;" href="#">
+                    <i class="icon-leaf" style="font-size:24px;color:#fff;margin:0 15px;box-shadow: 0px 0px 20px 0px #FCFCFC;background: grey;border-radius:10px"></i>
                     <span style="font-size: 22px;color:#FFFFFF">社区物业管理系统</span>
                 </a>
                 <div class="admin-side-toggle" style="display:none">
@@ -47,20 +48,27 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item"><a >个人信息</a></li>
+                #if( session.userType == '2'  || session.userType == '1' )
                 <li class="layui-nav-item"><a >业主信息管理</a></li>
                 <li class="layui-nav-item"><a >楼宇信息管理</a></li>
                 <li class="layui-nav-item"><a >房屋信息管理</a></li>
+                #end
+                #if(session.userType =='1')
                 <li class="layui-nav-item"><a >用户信息管理</a></li>
                 <li class="layui-nav-item"><a >系统管理</a></li>
+                #end
             </ul>
         </div>
     </div>
 
     <div class="layui-body"style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
         <!-- 内容主体区域 -->
-        <div class="layui-tab layui-tab-brief" lay-filter="admin-tab">
+        <div class="layui-tab layui-tab-brief " lay-allowClose="true" lay-filter="admin-tab">
             <ul class="layui-tab-title">
-                <li>主页</li>
+                <li class="layui-this">
+                    <i class="fa fa-dashboard" aria-hidden="true"></i>
+                    主页
+                </li>
             </ul>
             <div class="layui-tab-content" >
                 <div class="layui-tab-item layui-show">
@@ -78,17 +86,30 @@
 <script src="#(ctx)/site/js/layuibase/plugins/layui/layui.js"></script>
 
 <script>
+    //创建选项卡数组
+    var arr=[];
+
+    //判断选项卡是否存在的函数
+    function search(arr,id){
+        for(i=0;i<arr.length;i++){
+            if(arr[i]==id){
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    //初始化调用
     layui.use(['element', 'layer','form','table'], function() {//加载
         var element = layui.element,
             $ = layui.jquery,
             layer = layui.layer,
             form = layui.form,
             table = layui.table;
+
         element.on('nav(test)', function(elem){
             var a =elem.context.text;
             var id;
-            console.log(elem);
-            console.log(a);
             switch (a){
                 case "个人信息":
                     id =1;
@@ -115,12 +136,15 @@
                     url="#(ctx)/site/template/systemManage.html";
                     break;
             }
-            element.tabAdd('admin-tab', {
-                title: a
-                ,content: '<iframe data-frameid="'+id+'" scrolling="yes" overflow="visible" frameborder="0" src="'+url+'" style="width:100%;height:430px"></iframe>'
-                ,id:id //实际使用一般是规定好的id，这里以时间戳模拟下
-            })
-            element.tabChange('admin-tab',id);
+            if(search(arr,id)==0) {
+                element.tabAdd('admin-tab', {
+                    title: a,
+                    content: '<iframe data-frameid="' + id + '" scrolling="yes" overflow="visible" frameborder="0" src="' + url + '" style="width:100%;height:430px"></iframe>',
+                    id: id
+                })
+                arr.push(id);
+            }
+            element.tabChange('admin-tab', id);
         });
     });
 </script>
