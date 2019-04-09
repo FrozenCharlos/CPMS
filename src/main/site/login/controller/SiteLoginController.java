@@ -85,6 +85,7 @@ public class SiteLoginController extends Controller {
             setSessionAttr("userRole", userRole.getStr("role_name"));
             String redirectUrl = this.getSessionAttr("redirect");
 
+
             record.set("code",0);
             String redirect=null;
 
