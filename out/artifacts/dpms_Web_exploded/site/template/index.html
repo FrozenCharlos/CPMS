@@ -63,7 +63,7 @@
 
     <div class="layui-body"style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
         <!-- 内容主体区域 -->
-        <div class="layui-tab layui-tab-brief " lay-allowClose="true" lay-filter="admin-tab">
+        <div class="layui-tab layui-tab-brief "  lay-filter="admin-tab">
             <ul class="layui-tab-title">
                 <li class="layui-this">
                     <i class="fa fa-dashboard" aria-hidden="true"></i>
@@ -93,7 +93,7 @@
     function search(arr,id){
         for(i=0;i<arr.length;i++){
             if(arr[i]==id){
-                return 1;
+                return (i+1);
             }
         }
         return 0;
@@ -113,7 +113,7 @@
             switch (a){
                 case "个人信息":
                     id =1;
-                    url="#(ctx)/site/template/userMessageShow.html";
+                    url="#(ctx)/site/template/userShow.html";
                     break;
                 case "业主信息管理":
                     id =2;
