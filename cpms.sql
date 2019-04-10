@@ -11,7 +11,7 @@
  Target Server Version : 50716
  File Encoding         : 65001
 
- Date: 09/04/2019 17:39:04
+ Date: 10/04/2019 16:25:12
 */
 
 SET NAMES utf8mb4;
@@ -38,6 +38,7 @@ INSERT INTO `building_info` VALUES (1, '天河A1', 6, 16.8, 'commercial', 'using
 INSERT INTO `building_info` VALUES (2, 'jludormitory1', 6, 16.8, 'residential', 'using');
 INSERT INTO `building_info` VALUES (3, '天河A2', 6, 16.8, 'commercial', 'constructing');
 INSERT INTO `building_info` VALUES (4, 'jludomitory2', 6, 16.8, 'residential', 'constructing');
+INSERT INTO `building_info` VALUES (5, 'jludomitory3', 6, 16.8, 'residential', 'using');
 
 -- ----------------------------
 -- Table structure for menu_info
@@ -125,10 +126,11 @@ CREATE TABLE `room_info`  (
 -- ----------------------------
 -- Records of room_info
 -- ----------------------------
-INSERT INTO `room_info` VALUES (201, 1, 100, 5);
+INSERT INTO `room_info` VALUES (201, 1, 100, 4);
 INSERT INTO `room_info` VALUES (201, 2, 100, 5);
 INSERT INTO `room_info` VALUES (301, 1, 100, 6);
 INSERT INTO `room_info` VALUES (301, 2, 100, 7);
+INSERT INTO `room_info` VALUES (401, 1, 100, NULL);
 
 -- ----------------------------
 -- Table structure for user_info
@@ -139,7 +141,7 @@ CREATE TABLE `user_info`  (
   `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户姓名',
   `user_password` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用户密码',
   `user_account` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用户账号',
-  `user_idnumber` bigint(20) NOT NULL COMMENT '用户身份证号',
+  `user_idnumber` bigint(50) NOT NULL COMMENT '用户身份证号',
   `user_phonenumber` bigint(11) NULL DEFAULT NULL COMMENT '用户电话号码',
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
@@ -150,10 +152,10 @@ CREATE TABLE `user_info`  (
 INSERT INTO `user_info` VALUES (1, 'kim', 'q', 'q', 293049199605292288, 18812341234);
 INSERT INTO `user_info` VALUES (2, 'jim', 'w', 'w', 234234199508244219, NULL);
 INSERT INTO `user_info` VALUES (3, 'william', 'e', 'e', 201234199811222610, NULL);
-INSERT INTO `user_info` VALUES (4, 'zhangjie1', 'a', 'a', 111111111111111111, NULL);
-INSERT INTO `user_info` VALUES (5, 'zhangjie2', 'b', 'b', 111111111111111112, NULL);
-INSERT INTO `user_info` VALUES (6, 'zhangjie3', 'c', 'c', 111111111111111113, NULL);
-INSERT INTO `user_info` VALUES (7, 'zhangjie5', 'd', 'd', 111111111111111115, NULL);
+INSERT INTO `user_info` VALUES (4, 'zhangjie1', 'a', 'a', 12312319970920221, NULL);
+INSERT INTO `user_info` VALUES (5, 'zhangjie2', 'b', 'b', 234234199709232224, NULL);
+INSERT INTO `user_info` VALUES (6, 'zhangjie3', 'c', 'c', 345345199709202233, NULL);
+INSERT INTO `user_info` VALUES (7, 'zhangjie5', 'd', 'd', 567567199709201135, NULL);
 
 -- ----------------------------
 -- Table structure for user_role_relation
