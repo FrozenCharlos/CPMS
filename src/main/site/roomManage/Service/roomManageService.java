@@ -22,7 +22,7 @@ public class RoomManageService {
         return recordList;
     }
 
-    public static List<Record> getRoomInfoById(int roomId,String building_name) {
+    public static List<Record> getRoomInfoById(int roomId) {
 
         //定义返回列表
         List<Record> recordList =null;
@@ -31,7 +31,7 @@ public class RoomManageService {
         String sql = Db.getSql("roomManage.getRoomInfoById");
 
         //执行sql语句在数据库中查找对应结果赋值给recordList
-        recordList = Db.find(sql, roomId,building_name);
+        recordList = Db.find(sql, roomId);
 
         //返回结果值
         return recordList;

@@ -21,6 +21,7 @@ public class RoomManageController extends Controller {
             //异常
 
         }
+        //包装json数据
         record.set("code",0);
         record.set("msg","\"\"");
         record.set("data",roomInfoList);
@@ -55,6 +56,24 @@ public class RoomManageController extends Controller {
 //    }
     public void getRoomInfoById(){
         int id = Integer.parseInt(getPara("id"));
-        String buildingNama = getPara("");
+        //String buildingNama = getPara("");
+        try {
+            // 根据ID取得房屋信息
+            roomInfoList = roomService.getRoomInfoById(id);
+
+        } catch (Exception e) {
+
+            //异常
+
+        }
+        //包装json数据
+        record.set("code",0);
+        record.set("msg","\"\"");
+        record.set("data",roomInfoList);
+        record.set("count",roomInfoList.size());
+        renderJson(record);
+
+        return ;
+
     }
 }
